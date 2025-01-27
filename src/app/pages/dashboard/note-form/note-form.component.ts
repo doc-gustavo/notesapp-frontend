@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NoteService, Note } from 'src/app/core/services/note.service';
+import { Component, Inject } from '@angular/core';
+import { NoteService, Note } from '../../../core/services/note.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class NoteFormComponent {
   note: Note = { title: '', content: '' };
 
-  constructor(private noteService: NoteService, private router: Router) {}
+  constructor(@Inject(NoteService) private noteService: NoteService, private router: Router) {}
 
   saveNote() {
     this.noteService.createNote(this.note).subscribe({

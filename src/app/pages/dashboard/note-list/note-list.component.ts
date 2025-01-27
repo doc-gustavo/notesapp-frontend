@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NoteService, Note } from 'src/app/core/services/note.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { NoteService, Note } from '../../../core/services/note.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 export class NoteListComponent implements OnInit {
   notes: Note[] = [];
 
-  constructor(private noteService: NoteService, private router: Router) {}
+  constructor(@Inject(NoteService) private noteService: NoteService, private router: Router) {}
 
   ngOnInit(): void {
     this.noteService.getAllNotes().subscribe({
-      next: (data) => this.notes = data,
+      next: (data: Note[]) => this.notes = data,
       error: () => console.error('Error al cargar las notas')
     });
   }

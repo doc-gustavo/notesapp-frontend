@@ -1,7 +1,7 @@
 <div *ngIf="note">
-    <h2>{{ note.title }}</h2>
-    <p>{{ note.content }}</p>
-    <p>Fecha de creación: {{ note.createdAt | date }}</p>
-    <p>Última actualización: {{ note.updatedAt | date }}</p>
+    <h2>{{ note?.title }}</h2>
+    <p>{{ note?.content }}</p>
+    <!-- <p>Fecha de creación: {{ note?.createdAt | date }}</p>
+    <p>Última actualización: {{ note?.updatedAt | date }}</p> -->
   </div>
   
