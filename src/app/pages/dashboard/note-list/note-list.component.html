@@ -1,0 +1,11 @@
+<div class="note-list">
+    <h2>Mis Notas</h2>
+    <button (click)="createNote()">Crear Nueva Nota</button>
+    <ul>
+      <li *ngFor="let note of notes" (click)="viewNote(note.id)">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content | slice:0:50 }}...</p>
+      </li>
+    </ul>
+  </div>
+  
