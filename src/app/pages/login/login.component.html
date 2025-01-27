@@ -1,1 +1,9 @@
-<p>login works!</p>
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form (ngSubmit)="login()">
+      <input type="email" placeholder="Email" [(ngModel)]="credentials.email" name="email" required>
+      <input type="password" placeholder="Contraseña" [(ngModel)]="credentials.password" name="password" required>
+      <button type="submit">Ingresar</button>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </form>
+  </div>
